@@ -1,0 +1,70 @@
+/* Style Général du site */
+
+:root {
+    --main-color: #33C3F0;
+}
+@font-face {
+    font-family: 'DancingScript';
+    src:  url('polices/DancingScript-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Pacifico';
+    src:  url('polices/Pacifico-Regular.ttf') format('truetype');
+}
+body {
+    background-color: rgba(94, 190, 224, 0.5);
+    padding: 15px;
+    font-family: 'DancingScript';
+    font-size: 2.2rem;
+}
+
+
+section{
+    margin-bottom: 2.5rem;
+    padding: 10px;
+}
+ul {
+    list-style-type: none;
+}
+
+.titre-general {
+    font-family: 'Pacifico';
+    /*text-decoration: underline var(--main-color);*/
+    border-bottom: solid 4px var(--main-color) ;
+    width: max-content;
+}
+
+/* Formulaire de recherche page HOME */
+.recherche  summary {
+    display: list-item;
+    margin-bottom: 2.5rem;
+}
+.recherche  summary .titre-general {
+    display: inline;
+
+}
+
+section , main {
+    min-height: 100px;
+}
+
+.bandeau {
+    background: chartreuse;
+}
+.recherche {
+    /*background: rebeccapurple;*/
+}
+.identification {
+    background: tomato;
+}
+.main {
+    background: gold;
+}
+.categorie {
+    background: olivedrab;
+}
+.footer {
+    background: palevioletred;
+}
+
+
