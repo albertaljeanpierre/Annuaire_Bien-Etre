@@ -2,8 +2,16 @@
 {# C'est à dire que le controleur affiche ce twig. #}
 {# source https://symfony.com/doc/4.1/templating/embedding_controllers.html  #}
 
-                   <p> Main de recherche</p>
+
                 {{ response }}
+
+    {% if data is not null %}
+        <ul>
+            {% for key, user in data %}
+                <li>{{ key }}: {{ user }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 
 

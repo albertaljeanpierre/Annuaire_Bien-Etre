@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
 </head>
 <body>
 {% block body %}
-    <div class="container">
+    <div class="">
         <div class="row">
             {% block bandeau %}
                 <section class="bandeau eight columns">Bandeau</section>
@@ -38,7 +38,7 @@
                     <summary>
                         <h2 class="titre-general">Recherche</h2>
                     </summary>
-                    <form method="post">
+                    <form method="POST">
                         <div class="row">
                             <div class="six columns">
                                 <label class="u-full-width" for="categorie">Par catégorie</label>
@@ -47,7 +47,7 @@
                                 {#                                    {{ render(controller('App\\Controller\\ListeCategorieController::listOption')) }}#}
                                 {#                                </datalist>#}
                                 <select name="categorie" id="categorie" class="u-full-width">
-                                    <option value="" disabled selected>--- Sélectionner une catégorie ---</option>
+                                    <option value="" disabled selected>- Sélectionner une catégorie -</option>
                                     {#                                {{ render(controller('App\\Controller\\ListeCategorieController::selectOption')) }}#}
                                 </select>
 
@@ -92,10 +92,12 @@
             <main class="main eight columns">
                 {% block main %}
 
-                  {{ render(controller('App\\Controller\\Recherche\\RechercheController::recherchePrestataire')) }}
+
+                    {#  Ce controleur est appeller en GET !!! Il est nécessaire de lui passer un paramêtre à l'url qui est la Request #}
+                    {{ render(controller('App\\Controller\\Recherche\\RechercheController::recherchePrestataire' , {request:   requete   })) }}
 
 
-            {% endblock %}
+                {% endblock %}
             </main>
         </div>
         <div class="row">
