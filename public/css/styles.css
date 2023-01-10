@@ -19,7 +19,7 @@ body {
 }
 
 
-section{
+section, main {
     margin-bottom: 2.5rem;
     padding: 10px;
 }
