@@ -38,7 +38,7 @@
                     <summary>
                         <h2 class="titre-general">Recherche</h2>
                     </summary>
-                    <form method="POST">
+                    <form method="POST" action="{{ path('app_recherchePrestataire') }}">
                         <div class="row">
                             <div class="six columns">
                                 <label class="u-full-width" for="categorie">Par catégorie</label>
@@ -94,7 +94,7 @@
 
 
                     {#  Ce controleur est appeller en GET !!! Il est nécessaire de lui passer un paramêtre à l'url qui est la Request #}
-                    {{ render(controller('App\\Controller\\Recherche\\RechercheController::recherchePrestataire' , {request:   requete   })) }}
+{#                    {{ render(controller('App\\Controller\\Recherche\\RechercheController::recherchePrestataire' , {request:   requete   })) }}#}
 
 
                 {% endblock %}

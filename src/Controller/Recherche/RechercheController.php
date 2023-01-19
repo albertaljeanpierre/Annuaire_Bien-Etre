@@ -5,14 +5,18 @@ namespace App\Controller\Recherche;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use Symfony\Component\Routing\Annotation\Route;
 
 class RechercheController extends AbstractController
 {
-
-    public function recherchePrestataire($request): Response
+    /**
+     * @Route("/recherchePrestataire", name="app_recherchePrestataire")
+     * @param Request $request la requête POST pour la recherche des prestataires
+     * @return Response
+     */
+    public function recherchePrestataire( Request $request): Response
     {
-        // $request est transmit en paramètre de la fonction depuis base.html.twig qui récupère la requête de Request
+        // $request est transmis en paramètre de la fonction depuis base.html.twig qui récupère la requête de Request
         // Ce qui permet de récupérer les données de POST dans ce controller
 
 //        dump($request );
