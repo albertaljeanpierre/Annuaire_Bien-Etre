@@ -14,21 +14,26 @@
 body {
     background-color: rgba(94, 190, 224, 0.5);
     padding: 15px;
-    font-family: 'DancingScript';
+    font-family: 'DancingScript' , sans-serif;
     font-size: 2.2rem;
 }
 
-
+.align-center {
+    text-align: center;
+}
 section, main {
     margin-bottom: 2.5rem;
-    padding: 10px;
+    padding: 5px;
+}
+main {
+    font-size: 2.5rem;
 }
 ul {
     list-style-type: none;
 }
 
 .titre-general {
-    font-family: 'Pacifico';
+    font-family: 'Pacifico', sans-serif;
     /*text-decoration: underline var(--main-color);*/
     border-bottom: solid 4px var(--main-color) ;
     width: max-content;
@@ -43,6 +48,36 @@ ul {
     display: inline;
 
 }
+.recherche input[type="submit"] {
+    font-size: initial;
+}
+
+/* Presentation page HOME */
+.main .presentation {
+    background: #F1F1F1;
+    color: #000000;
+    box-shadow: 0 0 15px 5px  #bbbbbb;
+    border-radius: 20px;
+    padding: 10px;
+    transition: all 0.8s;
+}
+.main .presentation:hover {
+    transform: translateY(-10px);
+}
+
+.main .presentation .listePresentation li::before{
+    content: "\002714";
+    padding-right: 8px;
+    color: green;
+}
+.contrast {
+    background: #F1F1F1;
+    color: var(--main-color);
+    font-weight: bold;
+    display: inline-block;
+    padding: 4px 8px;
+
+}
 
 section , main {
     min-height: 100px;
@@ -51,15 +86,11 @@ section , main {
 .bandeau {
     background: chartreuse;
 }
-.recherche {
-    /*background: rebeccapurple;*/
-}
+
 .identification {
     background: tomato;
 }
-.main {
-    background: gold;
-}
+
 .categorie {
     background: olivedrab;
 }
@@ -68,3 +99,6 @@ section , main {
 }
 
 
+@media screen and (min-width: 360px){
+
+}

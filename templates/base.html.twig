@@ -36,65 +36,94 @@
             {% block recherche %}
                 <details open>
                     <summary>
-                        <h2 class="titre-general">Recherche</h2>
+                        <h2 class="titre-general">Rechercher un prestataire </h2>
                     </summary>
                     <form method="POST" action="{{ path('app_recherchePrestataire') }}">
+
                         <div class="row">
-                            <div class="six columns">
+                            <div class="four columns">
+                                <label for="commune">Par commune</label>
+                                <input class="u-full-width" type="text" name="commune" id="commune"
+                                       placeholder="Recherche par commune">
+                            </div>
+                            <div class="four columns">
+                                <label for="province">Par province</label>
+                                <input class="u-full-width" type="text" name="province" id="province"
+                                       placeholder="Recherche par province">
+                            </div>
+                            <div class="four columns">
+                                <label class="u-full-width" for="cp">Par code postal</label>
+                                <input class="u-full-width" type="text" name="cp" id="cp"
+                                       placeholder="Recherche par code postal">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="four columns">
                                 <label class="u-full-width" for="categorie">Par catégorie</label>
-                                {#                                <input class="u-full-width" type="text" name="categorie" id="categorie" list="categorie-list" pattern="[A-Za-z]+">#}
-                                {#                                <datalist id="categorie-list">#}
-                                {#                                    {{ render(controller('App\\Controller\\ListeCategorieController::listOption')) }}#}
-                                {#                                </datalist>#}
+                                {#                                <input class="u-full-width" type="text" name="categorie" id="categorie" list="categorie-list" pattern="[A-Za-z]+"> #}
+                                {#                                <datalist id="categorie-list"> #}
+                                {#                                    {{ render(controller('App\\Controller\\ListeCategorieController::listOption')) }} #}
+                                {#                                </datalist> #}
                                 <select name="categorie" id="categorie" class="u-full-width">
                                     <option value="" disabled selected>- Sélectionner une catégorie -</option>
-                                    {#                                {{ render(controller('App\\Controller\\ListeCategorieController::selectOption')) }}#}
+                                    {#                                {{ render(controller('App\\Controller\\ListeCategorieController::selectOption')) }} #}
                                 </select>
 
                             </div>
-                            <div class="six columns">
-                                <label for="prestataire">Par prestataire</label>
-                                <input class="u-full-width" type="text" name="prestataire" id="prestataire">
+                            <div class="four columns">
+                                <label for="prestataire">Par nom de prestataire</label>
+                                <input class="u-full-width" type="text" name="prestataire" id="prestataire"
+                                       placeholder="Recherche par nom">
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="six columns">
-                                <label class="u-full-width" for="cp">Par code postal</label>
-                                <input class="u-full-width" type="text" name="cp" id="cp">
-                            </div>
-                            <div class="six columns">
-                                <label for="localite">Par localité</label>
-                                <input class="u-full-width" type="text" name="localite" id="localite">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="six columns">
-                                <label for="commune">Par commune</label>
-                                <input class="u-full-width" type="text" name="commune" id="commune">
-                            </div>
-                            <div class="six columns">
+                            <div class="four columns">
                                 <br>
                                 <input type="submit" class="button-primary u-pull-right"
                                        value="Rechercher un prestataire">
                             </div>
                         </div>
-
                     </form>
                 </details>
             {% endblock %}
         </section>
         <div class="row">
-            <section class="categorie four columns">
+            <section class="categorie three columns">
                 {% block categorie %}
                     Catégorie
                 {% endblock %}
             </section>
-            <main class="main eight columns">
+            <main class="main nine columns">
                 {% block main %}
-
-
+                    <section class="row">
+                        <p>La société « Bien-Être » est une association dont le principal objectif est de promouvoir des
+                            services dans le domaine du bien-être.
+                            Elle agit en qualité d'intermédiaire entre les prestataires de services et les
+                            internautes.</p>
+                        <p class="align-center"><span class="contrast">Inscrivez-vous, c’est gratuit</span></p>
+                        <p>Dans ce site vous pourrez :</p>
+                    </section>
+                    <div class="row">
+                        <section class="six columns presentation">
+                            <h2>En tant que visiteur: </h2>
+                            <ul class="listePresentation">
+                                <li>Trouver un service pour votre bien être</li>
+                                <li>Connaitre les stages et promotions d’un prestataire</li>
+                                <li>Mettre en favoris un prestataire</li>
+                                <li>Recommander un prestataire à un ami</li>
+                                <li>Poster des commentaires</li>
+                                <li>Attribuer une cote à un prestataire</li>
+                            </ul>
+                        </section>
+                        <section class="six columns presentation">
+                            <h2>En tant que prestataire : </h2>
+                            <ul class="listePresentation">
+                                <li>Proposer vos services</li>
+                                <li>Fidéliser via des promotions régulières</li>
+                                <li>Annoncer les stages que vous organisez</li>
+                            </ul>
+                        </section>
+                    </div>
                     {#  Ce controleur est appeller en GET !!! Il est nécessaire de lui passer un paramêtre à l'url qui est la Request #}
-{#                    {{ render(controller('App\\Controller\\Recherche\\RechercheController::recherchePrestataire' , {request:   requete   })) }}#}
+                    {#                    {{ render(controller('App\\Controller\\Recherche\\RechercheController::recherchePrestataire' , {request:   requete   })) }} #}
 
 
                 {% endblock %}
