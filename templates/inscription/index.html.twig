@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscrivez-vous!{% endblock %}
+
+{% block main %}
+<section class="row">
+
+
+    <h2 class="titre-general">Inscription  à l'annuaire du Bien-être</h2>
+    <p style="color: red;">{{ erreur ?? erreur }}</p>
+    <form action="{{ path('app_inscription') }}" method="post">
+        <label for="inscription">Entrez votre Email pour vous inscrire,<br> vous serez invité à introduire plus d'information après validation de votre mail.</label>
+        <input type="email" name="inscription" id="inscription" placeholder="Votre E-mail" required><br>
+        <input type="submit" value="S'inscrire" class="button-primary">
+    </form>
+    {# returns the value of foo if it is defined and not null, 'no' otherwise #}
+    <p>{{ message ?? message }}</p>
+</section>
+{% endblock %}
