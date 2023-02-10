@@ -2,6 +2,8 @@
 
 :root {
     --main-color: #33C3F0;
+    --lien-color: green ;
+    --lien-color-hover: #8fb629;
 }
 @font-face {
     font-family: 'DancingScript';
@@ -31,7 +33,12 @@ main {
 ul {
     list-style-type: none;
 }
-
+a {
+    color: var(--lien-color);
+}
+a:hover {
+    color: var(--lien-color-hover);
+}
 .titre-general {
     font-family: 'Pacifico', sans-serif;
     /*text-decoration: underline var(--main-color);*/
@@ -92,13 +99,19 @@ section , main {
 }
 
 .categorie {
-    background: olivedrab;
+    background: #8fb629;
 }
 .footer {
     background: palevioletred;
 }
 
 
-@media screen and (min-width: 360px){
+@media screen and (min-width: 360px) and (max-width: 850px){
 
+    .titre-general {
+        font-family: 'Pacifico', sans-serif;
+        text-decoration: underline var(--main-color);
+        border-bottom: none;
+        width: auto;
+    }
 }
