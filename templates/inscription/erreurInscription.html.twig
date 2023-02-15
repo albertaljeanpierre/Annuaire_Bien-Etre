@@ -7,8 +7,8 @@
 
 
     <h2 class="titre-general">Inscription  à l'annuaire du Bien-être</h2>
-    <p style="color: red;">Une erreur est survenue lors de votre inscription, le lien que vous avez suivis est corrompu. </p>
-    <p>Si vous désirez vous inscrire, <a href="{{ path('app_inscription') }}">recommencer la procedure</a> ou <a href="{{ path('app_home') }}">retournez à l'accueil</a>.</p>
+    <p style="color: red;"> {{ message_erreur }} </p>
+    <p>{{  message_texte|raw}}</p>
 
 
 </section>

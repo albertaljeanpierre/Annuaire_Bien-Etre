@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription étape 2{% endblock %}
+
+{% block main %}
+<section class="row">
+
+
+    <h2 class="titre-general">Inscription - Étape 2</h2>
+{#    <p style="color: red;">{{ erreur ?? erreur }}</p>#}
+    <p>Votre inscription est confirmée, quel type d'utilisateur êtes vous? </p>
+
+
+
+
+    <form action="{{ path('app_inscription') }}" method="post">
+
+    </form>
+    {# returns the value of foo if it is defined and not null, 'no' otherwise #}
+
+</section>
+{% endblock %}

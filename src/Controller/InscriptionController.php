@@ -22,8 +22,8 @@ class InscriptionController extends AbstractController
             // dump($request->request->get('inscription'));
             // Récupération de l'adresse mail envoyé par l'utilisateur
             $to = trim($request->request->get('inscription'));
-            $to =  filter_var($to, FILTER_VALIDATE_EMAIL);
-            if ($to !== false ) {
+            $to = filter_var($to, FILTER_VALIDATE_EMAIL);
+            if ($to !== false) {
                 $subject = "Inscription à l'annuaire du bien-être";
                 $message = "Bonjour, suite à votre inscription à l'annuaire du bien-être, veuillez confirmer votre inscription en cliquant sur le lien suivant:";
                 $token = sha1($to);
@@ -57,36 +57,61 @@ class InscriptionController extends AbstractController
 
 
     #[Route('/inscription/confirmation', name: 'app_inscription_confirmation')]
-    function confirmationInscription(Request $request, EntityManagerInterface $entityManager )
+    public function confirmationInscription(Request $request, EntityManagerInterface $entityManager): Response
     {
         // dd($request->query->get('mail'));
-         //dd($request);
+        //dd($request);
         $mail = $request->query->get('mail');
         $token = $request->query->get('token');
         $tokenVerif = sha1($mail);
         $mailVerif = filter_var($mail, FILTER_VALIDATE_EMAIL);
-        if ( ($token === $tokenVerif) and ( $mailVerif !== false) ) { // insertion mail en base si l'email n'existe pas encore en base
+        if (($token === $tokenVerif) and ($mailVerif !== false)) { // insertion mail en base si l'email n'existe pas encore en base
 
             $userRepo = $entityManager->getRepository(User::class);
             $userMail = $userRepo->findOneBy(["email" => $mailVerif]);
             //dd($userMail );
-            if(is_null($userMail )) { // L'utilisateur ne s'est pas encore inscrit
+            if (is_null($userMail)) { // L'utilisateur ne s'est pas encore inscrit
                 $user = new  User();
-                $user->setInscription( new \DateTime());
+                $user->setInscription(new \DateTime());
                 $user->setInscriptionConfirmee(true);
                 $user->setEmail($mailVerif);
+                $user->getRoles();
                 $entityManager->persist($user);
                 $entityManager->flush();
-            } else { // l'utilisateur est déjà inscrit
-                dd('erreur utilisateur déjà inscrit');
 
+                return $this->redirectToRoute('app_inscription_etape_2');
+            } else { // l'utilisateur est déjà inscrit
+                // dd('erreur utilisateur déjà inscrit');
+                $message_erreur = "Vous être déjà inscrit dans notre annuaire.";
+                $message_texte = "Si vous avez finalisez votre inscription vous pouvez vous connectez.";
+                return $this->render('inscription/erreurInscription.html.twig', [
+                    'message_erreur' => $message_erreur,
+                    'message_texte' => $message_texte
+                ]);
             }
 
         } else { // affichage message d'erreur si lien corrompu
-            return $this->render('inscription/erreurInscription.html.twig', [
 
+            $message_erreur = "Une erreur est survenue lors de votre inscription, le lien que vous avez suivis est corrompu.";
+            // Pour que le twig puisse interpréter le chemin du path il faut l'échapper aver un ~ et ce contenu doit être du texte pour être interprété par twig.
+            $message_texte = "Si vous désirez vous inscrire, <a href=\"\"~{{ path('app_inscription') }}~\"\">recommencer la procedure</a> ou <a href=\"\"~{{ path('app_home') }}~\"\">retournez à l'accueil</a>.";
+            return $this->render('inscription/erreurInscription.html.twig', [
+                'message_erreur' => $message_erreur,
+                'message_texte' => $message_texte
             ]);
 
         }
     }
+
+    #[Route('/inscription/etappe-2', name: 'app_inscription_etape_2')]
+    public function inscriptionEtape2(): Response
+    {
+
+
+        return $this->render('inscription/formInscription.html.twig', [
+
+        ]);
+    }
+
+
 }
