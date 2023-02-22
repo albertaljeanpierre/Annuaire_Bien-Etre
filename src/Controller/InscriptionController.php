@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Prestataire;
 use App\Entity\User;
+use App\Form\PrestataireType;
+use App\Form\UserType;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,7 +36,7 @@ class InscriptionController extends AbstractController
                 // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
                 $headers = array(
                     'MIME-Version' => '1.0',
-                    'Content-type' => 'text/html; charset=UTF-8',
+                    'Content-type' => 'text/html; charset=utf-8',
                     'From' => 'webmaster@example.com',
                     'Reply-To' => 'webmaster@example.com',
 
@@ -72,14 +75,21 @@ class InscriptionController extends AbstractController
             //dd($userMail );
             if (is_null($userMail)) { // L'utilisateur ne s'est pas encore inscrit
                 $user = new  User();
-                $user->setInscription(new \DateTime());
+                $user->setInscription(new \DateTime('now'));
                 $user->setInscriptionConfirmee(true);
                 $user->setEmail($mailVerif);
-                $user->getRoles();
+                $roles = $user->getRoles();
+                $user->setRoles($roles);
                 $entityManager->persist($user);
-                $entityManager->flush();
+                $entityManager->flush(); // enregistrement en base des données (mail, role, la confirmation d'inscription, date d'inscription)
+                return $this->redirectToRoute('app_inscription_etape_2', ['id' => $user->getId()]);
 
-                return $this->redirectToRoute('app_inscription_etape_2');
+
+//                return $this->redirectToRoute('app_inscription_etape_2');
+//                return $this->render('inscription/formInscription.html.twig', [
+//                    'formUser' => $formUser->createView(),
+////                    'formPrestataire' => $formPrestataire->createView()
+//                ]);
             } else { // l'utilisateur est déjà inscrit
                 // dd('erreur utilisateur déjà inscrit');
                 $message_erreur = "Vous être déjà inscrit dans notre annuaire.";
@@ -103,13 +113,32 @@ class InscriptionController extends AbstractController
         }
     }
 
-    #[Route('/inscription/etappe-2', name: 'app_inscription_etape_2')]
-    public function inscriptionEtape2(): Response
+    #[Route('/inscription/etappe-2/{id}', name: 'app_inscription_etape_2')]
+    public function inscriptionEtape2(Request $request , User $user, EntityManagerInterface $entityManager): Response
     {
 
+        // Création du formulaire dépendant des Entity User
+        $formUser = $this->createForm(UserType::class, $user);
 
+
+        // $formPrestataire = $this->createForm(PrestataireType::class, $prestataire);
+        $formUser->handleRequest($request);
+        if ($formUser->isSubmitted() && $formUser->isValid()) {
+            $user->setTypeUtilisateur('Prestataire');
+            $prestataire = new Prestataire();
+            $user->setPrestataire($prestataire);
+
+            $user = $formUser->getData();
+            $entityManager->persist($prestataire);
+            $entityManager->persist($user);
+            $entityManager->flush();
+            dump($prestataire);
+            dd($user);
+
+            return $this->redirectToRoute('task_success');
+        }
         return $this->render('inscription/formInscription.html.twig', [
-
+            'formUser' => $formUser->createView(),
         ]);
     }
 

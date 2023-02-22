@@ -28,7 +28,10 @@
             {% endblock %}
             <section class="identification four columns">
                 {% block identification %}
-                    Identification
+                    <div>
+                        <a href="#" class="btn-lien">Connexion</a>
+                        <a href="{{ path('app_inscription') }}" class="btn-lien">Inscription</a>
+                    </div>
                 {% endblock %}
             </section>
         </div>

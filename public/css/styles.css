@@ -2,59 +2,80 @@
 
 :root {
     --main-color: #33C3F0;
-    --lien-color: green ;
+    --lien-color: green;
     --lien-color-hover: #8fb629;
 }
+
 @font-face {
     font-family: 'DancingScript';
-    src:  url('polices/DancingScript-VariableFont_wght.ttf') format('truetype');
+    src: url('polices/DancingScript-VariableFont_wght.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Pacifico';
-    src:  url('polices/Pacifico-Regular.ttf') format('truetype');
+    src: url('polices/Pacifico-Regular.ttf') format('truetype');
 }
+
 body {
     background-color: rgba(94, 190, 224, 0.5);
     padding: 15px;
-    font-family: 'DancingScript' , sans-serif;
+    font-family: 'DancingScript', sans-serif;
     font-size: 2.2rem;
 }
 
 .align-center {
     text-align: center;
 }
+
 section, main {
     margin-bottom: 2.5rem;
     padding: 5px;
 }
+
 main {
     font-size: 2.5rem;
 }
+
 ul {
     list-style-type: none;
 }
+
 a {
     color: var(--lien-color);
 }
+
 a:hover {
     color: var(--lien-color-hover);
 }
+
 .titre-general {
     font-family: 'Pacifico', sans-serif;
     /*text-decoration: underline var(--main-color);*/
-    border-bottom: solid 4px var(--main-color) ;
+    border-bottom: solid 4px var(--main-color);
     width: max-content;
+}
+.btn-lien {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 7px 15px;
+    background: var(--lien-color);
+    color: #F1F1F1;
+    margin-right: 10px;
+
 }
 
 /* Formulaire de recherche page HOME */
-.recherche  summary {
+.recherche summary {
     display: list-item;
     margin-bottom: 2.5rem;
 }
-.recherche  summary .titre-general {
+
+.recherche summary .titre-general {
     display: inline;
 
 }
+
 .recherche input[type="submit"] {
     font-size: initial;
 }
@@ -63,20 +84,22 @@ a:hover {
 .main .presentation {
     background: #F1F1F1;
     color: #000000;
-    box-shadow: 0 0 15px 5px  #bbbbbb;
+    box-shadow: 0 0 15px 5px #bbbbbb;
     border-radius: 20px;
     padding: 10px;
     transition: all 0.8s;
 }
+
 .main .presentation:hover {
     transform: translateY(-10px);
 }
 
-.main .presentation .listePresentation li::before{
+.main .presentation .listePresentation li::before {
     content: "\002714";
     padding-right: 8px;
     color: green;
 }
+
 .contrast {
     background: #F1F1F1;
     color: var(--main-color);
@@ -86,7 +109,28 @@ a:hover {
 
 }
 
-section , main {
+/* Inscription , formulaire d'inscription*/
+.inscription input[type="checkbox"], .inscription input[type="checkbox"] +  div.form {
+    display: none;
+}
+.inscription input[type="checkbox"]:checked + div.form  {
+    display: block;
+}
+.inscription .label-choix {
+    font-size: 1.6em;
+    text-align: center;
+    background: #F1F1F1;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px #bbbbbb;
+    margin-bottom: 20px;
+}
+.inscription .label-choix:hover {
+    background: #bbbbbb;
+    box-shadow: none;
+}
+
+section, main {
     min-height: 100px;
 }
 
@@ -94,19 +138,17 @@ section , main {
     background: chartreuse;
 }
 
-.identification {
-    background: tomato;
-}
 
 .categorie {
     background: #8fb629;
 }
+
 .footer {
     background: palevioletred;
 }
 
 
-@media screen and (min-width: 360px) and (max-width: 850px){
+@media screen and (min-width: 360px) and (max-width: 850px) {
 
     .titre-general {
         font-family: 'Pacifico', sans-serif;

@@ -3,20 +3,30 @@
 {% block title %}Inscription étape 2{% endblock %}
 
 {% block main %}
-<section class="row">
+    <section class="row inscription">
 
 
-    <h2 class="titre-general">Inscription - Étape 2</h2>
-{#    <p style="color: red;">{{ erreur ?? erreur }}</p>#}
-    <p>Votre inscription est confirmée, quel type d'utilisateur êtes vous? </p>
+        <h2 class="titre-general">Inscription - Étape 2</h2>
+        {#    <p style="color: red;">{{ erreur ?? erreur }}</p> #}
+        <p>Votre inscription est confirmée, quel type d'utilisateur êtes vous? </p>
+
+        <label for="inscription_prestataire" class="label-choix">Je suis un prestataire</label>
+        <input type="checkbox" id="inscription_prestataire" name="choix">
+        <div class="form">
+            <div class=" "> {{ form(formUser) }}</div>
+{#            <div class="six columns"> {{ form(formPrestataire) }}</div>#}
+        </div>
 
 
+        <label for="inscription_internaute" class="label-choix">Je suis un internaute</label>
+        <input type="checkbox" id="inscription_internaute" name="choix">
+        <div class="form">formulaire utilisateur à venir...</div>
 
 
-    <form action="{{ path('app_inscription') }}" method="post">
+        <form action="{{ path('app_inscription') }}" method="post">
 
-    </form>
-    {# returns the value of foo if it is defined and not null, 'no' otherwise #}
+        </form>
+        {# returns the value of foo if it is defined and not null, 'no' otherwise #}
 
-</section>
+    </section>
 {% endblock %}
