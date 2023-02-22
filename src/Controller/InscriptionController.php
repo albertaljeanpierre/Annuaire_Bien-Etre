@@ -127,7 +127,8 @@ class InscriptionController extends AbstractController
             $user->setTypeUtilisateur('Prestataire');
             $prestataire = new Prestataire();
             $user->setPrestataire($prestataire);
-
+            $prestataire->setUser($user);
+            $user->setPassword(password_hash($user->getPassword(), PASSWORD_DEFAULT));
             $user = $formUser->getData();
             $entityManager->persist($prestataire);
             $entityManager->persist($user);
