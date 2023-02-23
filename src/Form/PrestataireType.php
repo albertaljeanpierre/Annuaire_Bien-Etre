@@ -4,6 +4,11 @@ namespace App\Form;
 
 use App\Entity\Prestataire;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,11 +17,12 @@ class PrestataireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('siteInternet')
-            ->add('numTel')
-            ->add('numTVA')
+            ->add('nom' , TextType::class, ['label' => 'Votre nom de prestataire :' ])
+            ->add('siteInternet' , UrlType::class , ['label' => 'L\'URL de votre site internet :'])
+            ->add('numTel' , TelType::class, ['label' => 'Votre numéro de téléphone :'])
+            ->add('numTVA' , TextType::class, ['label' => 'Votre numéro de TVA Belge :', 'attr' => ['placeholder' => 'BE 0 123 456 789']])
 //            ->add('user')
+            ->add('Valider' , SubmitType::class)
         ;
     }
 

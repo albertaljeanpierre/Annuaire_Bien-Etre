@@ -27,7 +27,8 @@ class InscriptionController extends AbstractController
             $to = trim($request->request->get('inscription'));
             $to = filter_var($to, FILTER_VALIDATE_EMAIL);
             if ($to !== false) {
-                $subject = "Inscription à l'annuaire du bien-être";
+                $subject =  "Inscription à l'annuaire du bien-être";
+                $subject = mb_convert_encoding($subject, "UTF-8"); // non operational pour afficher le titre en utf-8
                 $message = "Bonjour, suite à votre inscription à l'annuaire du bien-être, veuillez confirmer votre inscription en cliquant sur le lien suivant:";
                 $token = sha1($to);
                 $lien = 'http://' . $_SERVER['HTTP_HOST'] . "/inscription/confirmation?mail=" . urlencode($to) . '&amp;token=' . $token;
@@ -114,7 +115,7 @@ class InscriptionController extends AbstractController
     }
 
     #[Route('/inscription/etappe-2/{id}', name: 'app_inscription_etape_2')]
-    public function inscriptionEtape2(Request $request , User $user, EntityManagerInterface $entityManager): Response
+    public function inscriptionEtape2(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
 
         // Création du formulaire dépendant des Entity User
@@ -133,15 +134,48 @@ class InscriptionController extends AbstractController
             $entityManager->persist($prestataire);
             $entityManager->persist($user);
             $entityManager->flush();
-            dump($prestataire);
-            dd($user);
+//            dump($prestataire);
+//            dd($user);
 
-            return $this->redirectToRoute('task_success');
+            return $this->redirectToRoute('app_inscription_etape_3', ['id' => $prestataire->getId()]);
         }
         return $this->render('inscription/formInscription.html.twig', [
             'formUser' => $formUser->createView(),
+            'formPrestataire' => null
         ]);
     }
 
 
+    #[Route('/inscription/etappe-3/{id}', name: 'app_inscription_etape_3')]
+    public function inscriptionEtape3(Request $request, Prestataire $prestataire, EntityManagerInterface $entityManager): Response
+    {
+
+        // Création du formulaire dépendant des Entity Prestataire
+        $formPrestataire = $this->createForm(PrestataireType::class, $prestataire);
+
+
+        // $formPrestataire = $this->createForm(PrestataireType::class, $prestataire);
+        $formPrestataire->handleRequest($request);
+        if ($formPrestataire->isSubmitted() && $formPrestataire->isValid()) {
+            $prestataire = $formPrestataire->getData();
+            // dd($prestataire);
+
+            $entityManager->persist($prestataire);
+            $entityManager->flush();
+            return $this->redirectToRoute('inscription_success');
+        }
+        return $this->render('inscription/formInscription.html.twig', [
+            'formPrestataire' => $formPrestataire->createView(),
+            'formUser' => null
+        ]);
+    }
+
+    #[Route('/inscription/valide/', name: 'inscription_success')]
+    public function inscription_success() : Response {
+
+        return $this->render('inscription/inscription_success.html.twig', [
+
+        ]);
+
+    }
 }

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2596072e-e369-4f20-b3a7-84f7ebdb08ba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/inscription/inscription_success.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/InscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Prestataire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prestataire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PrestataireType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PrestataireType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/inscription/formInscription.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inscription/formInscription.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +196,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674575912539</updated>
       <workItem from="1674575916367" duration="22723000" />
-      <workItem from="1675866665112" duration="80427000" />
+      <workItem from="1675866665112" duration="87607000" />
     </task>
     <servers />
   </component>
