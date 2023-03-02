@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Description de la catégorie {{ categorie.nom }} {% endblock %}
+
+ {% block main %}
+
+     <h2 class="titre-general">Description de {{ categorie.nom }} </h2>
+     <p> {{  categorie.description  }}</p>
+{% endblock %}

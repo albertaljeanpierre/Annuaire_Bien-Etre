@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2596072e-e369-4f20-b3a7-84f7ebdb08ba" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/inscription/inscription_success.html.twig" afterDir="false" />
+    <list default="true" id="dc63e2fe-08c0-4697-8228-9e7bb4ab2ac4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20230224161340.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/CategorieController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/CategorieRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/categorie/addCategories.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/categorie/description.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/categorie/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/categorie/listeCategories.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PrestataireType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PrestataireType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inscription/formInscription.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inscription/formInscription.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Prestataire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prestataire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +27,13 @@
   <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -173,7 +188,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/projets-2023/Annuaire_Bien-Etre/templates/inscription",
+    "last_opened_file_path": "F:/projets-2023/Annuaire_Bien-Etre/templates/categorie",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -183,6 +198,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\projets-2023\Annuaire_Bien-Etre\templates\categorie" />
       <recent name="F:\projets-2023\Annuaire_Bien-Etre\templates\inscription" />
       <recent name="F:\projets-2023\Annuaire_Bien-Etre\src\Controller\Recherche" />
     </key>

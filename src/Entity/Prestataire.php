@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PrestataireRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PrestataireRepository::class)]
@@ -27,6 +29,14 @@ class Prestataire
 
     #[ORM\OneToOne(mappedBy: 'prestataire', cascade: ['persist', 'remove'])]
     private ?User $user = null;
+
+    #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'prestataires')]
+    private Collection $categorie;
+
+    public function __construct()
+    {
+        $this->categorie = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -94,6 +104,30 @@ class Prestataire
         }
 
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Categorie>
+     */
+    public function getCategorie(): Collection
+    {
+        return $this->categorie;
+    }
+
+    public function addCategorie(Categorie $categorie): self
+    {
+        if (!$this->categorie->contains($categorie)) {
+            $this->categorie->add($categorie);
+        }
+
+        return $this;
+    }
+
+    public function removeCategorie(Categorie $categorie): self
+    {
+        $this->categorie->removeElement($categorie);
 
         return $this;
     }

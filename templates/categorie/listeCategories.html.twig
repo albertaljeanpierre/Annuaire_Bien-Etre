@@ -1,0 +1,15 @@
+{# {% extends 'base.html.twig' %} #}
+
+
+{#Ce fichier génère une liste d'option de catégorie, à inclure dans un select.#}
+{#Je n'ai volontairement pas mis le select complet car il doit ce trouver à 2 endroits différent, donc deux finalité différente. #}
+    <option value="" disabled selected>- Sélectionner une catégorie -</option>
+    {% for categorie in categoriesValide %}
+        <option value="{{ categorie.id }}">{{ categorie.nom }}</option>
+    {% endfor %}
+
+
+
+
+
+

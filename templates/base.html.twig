@@ -18,6 +18,7 @@
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
+    <script src="{{ asset('js/main.js') }}" defer></script>
 </head>
 <body>
 {% block body %}
@@ -68,8 +69,11 @@
                                 {#                                    {{ render(controller('App\\Controller\\ListeCategorieController::listOption')) }} #}
                                 {#                                </datalist> #}
                                 <select name="categorie" id="categorie" class="u-full-width">
-                                    <option value="" disabled selected>- Sélectionner une catégorie -</option>
-                                    {#                                {{ render(controller('App\\Controller\\ListeCategorieController::selectOption')) }} #}
+{#                                    ANCIEN CODE #}
+{#                                    <option value="" disabled selected>- Sélectionner une catégorie -</option>#}
+{#                                    #}{#                                {{ render(controller('App\\Controller\\ListeCategorieController::selectOption')) }} #}
+{#                                    la vue de la methode listeCategorie crée une liste d'option qui est réutilisable dans plusieurs formulaire#}
+                                    {{ render(controller('App\\Controller\\CategorieController::listeCategorie')) }}
                                 </select>
 
                             </div>
@@ -91,7 +95,14 @@
         <div class="row">
             <section class="categorie three columns">
                 {% block categorie %}
-                    Catégorie
+                    <h2 class="titre-general">Les Catégories</h2>
+                    <p>Sélectionner une catégorie pour en voir la description.</p>
+                    <form>
+                        <select name="listeCategorie" id="listeCategorie" class="u-full-width">
+                            {# la vue de la methode listeCategorie crée une liste d'option qui est réutilisable dans plusieurs formulaire #}
+                            {{ render(controller('App\\Controller\\CategorieController::listeCategorie')) }}
+                        </select>
+                    </form>
                 {% endblock %}
             </section>
             <main class="main nine columns">
@@ -106,7 +117,7 @@
                     </section>
                     <div class="row">
                         <section class="six columns presentation">
-                            <h2>En tant que visiteur: </h2>
+                            <h2>En tant que visiteur : </h2>
                             <ul class="listePresentation">
                                 <li>Trouver un service pour votre bien être</li>
                                 <li>Connaitre les stages et promotions d’un prestataire</li>
