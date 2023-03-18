@@ -23,15 +23,5 @@ class HomeController extends AbstractController
     }
 
 
-    /**
-     * @Route("/test", name="app_test")
-     *
-     */
-    public function test( ): Response
-    {
-        // dump($request);
-        return $this->render('home/index.html.twig', [
 
-        ]);
-    }
 }

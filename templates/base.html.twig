@@ -12,6 +12,7 @@
         <link href="{{ asset('css/normalize.css') }}" rel="stylesheet"/>
         <link href="{{ asset('css/skeleton.css') }}" rel="stylesheet"/>
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('css/slider.css') }}" rel="stylesheet"/>
 
     {% endblock %}
 
@@ -19,13 +20,127 @@
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
     <script src="{{ asset('js/main.js') }}" defer></script>
+    <script src="{{ asset('js/jssor.slider-28.1.0.min.js') }}" ></script>
+    <script src="{{ asset('js/slider.js') }}" ></script>
 </head>
 <body>
 {% block body %}
     <div class="">
         <div class="row">
             {% block bandeau %}
-                <section class="bandeau eight columns">Bandeau</section>
+                <section class="bandeau eight columns">
+                    <div class="logo">
+                        <a href="{{ path('app_home') }}">
+                            <h1>
+                                <svg viewBox="0 0 160 160" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg_null">
+                                    <defs>
+                                        <circle id="36d8f85a-6f12-4ab7-98bf-13d53e477476" cx="80" cy="81" r="64"></circle>
+                                        <circle id="c7fb2583-d9f9-4a0a-82a0-1cd470100d20" cx="80" cy="81" r="64"></circle>
+                                        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+                                            <stop stop-color="#EAFCFD" offset="0%"></stop>
+                                            <stop stop-color="#9BD4E5" offset="100%"></stop>
+                                        </linearGradient>
+                                    </defs>
+                                    <g id="root" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect id="background" fill="" x="0" y="0" width="160" height="160"></rect>
+                                        <circle id="shape" fill="#A7EDFF" cx="80" cy="81" r="64"></circle>
+                                        <mask id="bd367832-a7fb-451e-a0a0-b3047e7c828f" fill="#fff">
+                                            <use xlink:href="#36d8f85a-6f12-4ab7-98bf-13d53e477476"></use>
+                                        </mask>
+                                        <rect id="shape" fill="#75B137" mask="url(#bd367832-a7fb-451e-a0a0-b3047e7c828f)" x="9"
+                                              y="84" width="140" height="22"></rect>
+                                        <path d="M127.204 84l3.986 0l26.654 15.389c0.477 0.275 0.64 0.884 0.365 1.361c-0.275 0.477 -0.884 0.64 -1.361 0.365l-29.644 -17.115zm-13.119 0l3.167 0l33.028 26.746c0.428 0.346 0.494 0.974 0.148 1.401c-0.347 0.428 -0.974 0.494 -1.402 0.148l-34.94 -28.295zm-9.18 0l2.724 0l33.915 36.368c0.375 0.403 0.353 1.033 -0.05 1.409c-0.402 0.375 -1.033 0.353 -1.408 -0.05l-35.181 -37.727zm-6.676 0l2.404 0l30.351 44.998c0.308 0.456 0.188 1.075 -0.269 1.383c-0.456 0.308 -1.075 0.187 -1.383 -0.269l-31.103 -46.112zm-5.812 0l2.217 0l25.178 51.623c0.242 0.494 0.036 1.09 -0.458 1.332c-0.495 0.241 -1.091 0.036 -1.333 -0.459l-25.604 -52.496zm-4.665 0l2.083 0l17.355 56.763c0.16 0.526 -0.136 1.083 -0.662 1.244c-0.526 0.161 -1.083 -0.135 -1.244 -0.661l-17.532 -57.346zm-4.673 0l2.018 0l9.472 59.806c0.086 0.543 -0.285 1.054 -0.828 1.14c-0.544 0.086 -1.054 -0.285 -1.14 -0.828l-9.522 -60.118zm-4.075 0l1.992 0l0 61.004c0 0.55 -0.446 0.996 -0.996 0.996c-0.55 0 -0.996 -0.446 -0.996 -0.996l0 -61.004zm-4.1 0l2.017 0l-9.522 60.118c-0.086 0.543 -0.596 0.914 -1.14 0.828c-0.543 -0.086 -0.914 -0.597 -0.828 -1.14l9.472 -59.806zm-4.74 0l2.084 0l-17.532 57.346c-0.16 0.526 -0.718 0.822 -1.244 0.661c-0.526 -0.16 -0.823 -0.718 -0.662 -1.244l17.355 -56.763zm-4.798 0l2.217 0l-25.604 52.496c-0.242 0.495 -0.838 0.7 -1.333 0.459c-0.494 -0.241 -0.7 -0.838 -0.458 -1.332l25.178 -51.623zm-5.999 0l2.404 0l-31.103 46.112c-0.308 0.456 -0.927 0.577 -1.383 0.269c-0.457 -0.308 -0.577 -0.927 -0.27 -1.383l30.352 -44.998zm-6.996 0l2.724 0l-35.181 37.727c-0.375 0.403 -1.006 0.425 -1.408 0.05c-0.403 -0.376 -0.425 -1.006 -0.05 -1.409l33.915 -36.368zm-9.623 0l3.167 0l-34.941 28.295c-0.428 0.346 -1.055 0.28 -1.402 -0.148c-0.346 -0.427 -0.28 -1.055 0.148 -1.4l33.028 -26.747zm-13.938 0l3.986 0l-29.644 17.115c-0.477 0.275 -1.086 0.112 -1.361 -0.365c-0.275 -0.477 -0.112 -1.086 0.365 -1.361l26.654 -15.389z"
+                                              id="shape" fill="#449F2B" mask="url(#bd367832-a7fb-451e-a0a0-b3047e7c828f)"></path>
+                                        <path d="M148 84l-96 0l48 -48l48 48z" id="shape" fill="#70B2C7"
+                                              mask="url(#bd367832-a7fb-451e-a0a0-b3047e7c828f)"></path>
+                                        <path d="M108.225 84l-96 0l48 -48l48 48z" id="shape" fill="#85C4D8"
+                                              mask="url(#bd367832-a7fb-451e-a0a0-b3047e7c828f)"></path>
+                                        <mask id="c168b711-620c-4a2d-a532-57708e2478b6" fill="#fff">
+                                            <use xlink:href="#c7fb2583-d9f9-4a0a-82a0-1cd470100d20"></use>
+                                        </mask>
+                                        <g id="Group-2" mask="url(#c168b711-620c-4a2d-a532-57708e2478b6)">
+                                            <g transform="translate(9.000000, 61.000000)" id="shape">
+                                                <path d="M55.94 23l-55.94 0c1.184 -7.372 7.516 -13 15.15 -13c1.57 0 3.085 0.238 4.51 0.68c0.969 -6.055 6.17 -10.68 12.439 -10.68c5.4 0 10.006 3.43 11.8 8.25c6.83 1.1 12.049 7.077 12.049 14.284c0 0.156 -0.003 0.311 -0.008 0.466z"
+                                                      fill="url(#linearGradient-5)"
+                                                      transform="translate(27.973868, 11.500000) scale(-1, 1) translate(-27.973868, -11.500000)"></path>
+                                                <path d="M142.042 23l-55.941 0c1.184 -7.372 7.516 -13 15.15 -13c1.57 0 3.085 0.238 4.51 0.68c0.969 -6.055 6.17 -10.68 12.439 -10.68c5.4 0 10.006 3.43 11.8 8.25c6.83 1.1 12.049 7.077 12.049 14.284c0 0.156 -0.003 0.311 -0.007 0.466z"
+                                                      fill="url(#linearGradient-5)"></path>
+                                                <rect fill="#B7D874" x="4" y="39" width="134" height="50"></rect>
+                                            </g>
+                                        </g>
+                                        <path d="M80 145c35.346 0 64 -28.654 64 -64c0 -35.346 -28.654 -64 -64 -64c-35.346 0 -64 28.654 -64 64c0 35.346 28.654 64 64 64zm0 5c-38.108 0 -69 -30.892 -69 -69c0 -38.108 30.892 -69 69 -69c38.108 0 69 30.892 69 69c0 38.108 -30.892 69 -69 69z"
+                                              id="shape" fill="var(--main-color)" fill-rule="nonzero"></path>
+                                        <path d="M79 77.586l0 -12.586l2 0l0 12.9l7.9 -7.9l1.414 1.414l-9.314 9.314l0 3.272l-2 0l0 -3.586l-9 -9l1.414 -1.414l7.586 7.586z"
+                                              id="shape" fill="#554D46"></path>
+                                        <path d="M79.793 46.115c5.323 4.723 9.365 20.252 0 20.252c-9.366 0 -5.612 -15.307 0 -20.252zm16.045 16.996c0.567 4.266 -3.496 12.909 -7.621 9.163c-4.125 -3.745 3.288 -9.17 7.62 -9.163zm-31.142 0c-0.568 4.266 3.496 12.909 7.62 9.163c4.126 -3.745 -3.288 -9.17 -7.62 -9.163z"
+                                              id="shape" fill="#1F6944"></path>
+                                        <rect id="shape" fill="" x="16" y="106" width="128" height="28"></rect>
+                                        <g id="Group" transform="translate(21.000000, 110.000000)">
+                                            <rect id="Rectangle-82" x="0" y="0" width="118" height="20"></rect>
+                                            <text id="headerText" font-family="" font-size="15" font-weight="700" fill="#554D46"
+                                                  data-text-alignment="C" font-style="normal" letter-spacing="NaN">
+                                                <tspan x="8" y="5.5">Annuaire du bien être</tspan>
+                                            </text>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </h1>
+                        </a>
+                    </div>
+                    <div id="jssor_1"
+                         style="position:relative;margin:0 auto;padding: 0;top:0px;left:0px;width:700px;height:300px;overflow:hidden;visibility:hidden;">
+                        <!-- Loading Screen -->
+                        <div data-u="loading" class="jssorl-004-double-tail-spin"
+                             style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+                            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;"
+                                 src="{{ asset('images/slider/double-tail-spin.svg') }}" alt=""/>
+                        </div>
+                        <div data-u="slides"
+                             style="cursor:default;position:relative;top:0px;left:0px;width:700px;height:300px;overflow:hidden;">
+                            <div style="background-color:#000000;">
+                                <img data-u="image" src="{{ asset('images/slider/1.jpg') }}" alt="Bien être"/>
+                            </div>
+                            <div>
+                                <img data-u="image" src="{{ asset('images/slider/relaxation.jpg') }}" alt="Relaxation"/>
+                            </div>
+                            <div>
+                                <img data-u="image" src="{{ asset('images/slider/yoga.jpg') }}" alt="Yoga"/>
+                            </div>
+                            <div style="">
+                                <img data-u="image" src="{{ asset('images/slider/pedicure.jpg') }}" alt="Pédicure"/>
+                            </div>
+                            <div>
+                                <img data-u="image" src="{{ asset('images/slider/coiffure.jpg') }}" alt="Coiffure"/>
+                            </div>
+                        </div>
+                        <!-- Bullet Navigator -->
+                        <div data-u="navigator" class="jssorb031" style="position:absolute;bottom:16px;right:16px;"
+                             data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+                            <div data-u="prototype" class="i" style="width:13px;height:13px;">
+                                <svg viewbox="0 0 16000 16000"
+                                     style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                    <circle class="b" cx="8000" cy="8000" r="5800"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Arrow Navigator -->
+                        <div data-u="arrowleft" class="jssora051" style="width:55px;height:55px;top:0px;left:25px;"
+                             data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+                            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+                            </svg>
+                        </div>
+                        <div data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:25px;"
+                             data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+                            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                                <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <script type="text/javascript">jssor_1_slider_init();
+                    </script>
+                    <!-- #endregion Jssor Slider End -->
+                </section>
             {% endblock %}
             <section class="identification four columns">
                 {% block identification %}

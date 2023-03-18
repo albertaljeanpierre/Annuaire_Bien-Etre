@@ -134,10 +134,13 @@ section, main {
     min-height: 100px;
 }
 
-.bandeau {
-    background: chartreuse;
+.logo {
+   flex-basis: 200px;
 }
+.bandeau {
+    display: flex;
 
+}
 
 
 .footer {
