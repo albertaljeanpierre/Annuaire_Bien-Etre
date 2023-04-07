@@ -53,6 +53,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\JoinColumn(nullable: true)]
     private ?Prestataire $prestataire = null;
 
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Commune $commune = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -234,6 +238,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPrestataire(Prestataire $prestataire): self
     {
         $this->prestataire = $prestataire;
+
+        return $this;
+    }
+
+    public function getCommune(): ?Commune
+    {
+        return $this->commune;
+    }
+
+    public function setCommune(?Commune $commune): self
+    {
+        $this->commune = $commune;
 
         return $this;
     }

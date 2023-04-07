@@ -142,7 +142,17 @@ section, main {
 
 }
 
-
+/* Recherche des prestataires */
+.prestataire-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.prestataire-description {
+    border: 2px solid var(--main-color) ;
+    border-radius: 15px;
+    padding: 20px;
+}
 .footer {
     background: palevioletred;
 }

@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc63e2fe-08c0-4697-8228-9e7bb4ab2ac4" name="Changes" comment="">
+    <list default="true" id="10efdd84-17d4-4604-a9e5-5dea0c8c8944" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/Recherche/addDataController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/recherche/addLieu.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CategorieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Recherche/RechercheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Recherche/RechercheController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Prestataire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prestataire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PrestataireRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PrestataireRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recherche/recherchePrestataire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recherche/recherchePrestataire.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +185,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/projets-2023/Annuaire_Bien-Etre/documments",
+    "last_opened_file_path": "F:/projets-2023/Annuaire_Bien-Etre/templates/recherche",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -189,6 +195,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\projets-2023\Annuaire_Bien-Etre\templates\recherche" />
       <recent name="F:\projets-2023\Annuaire_Bien-Etre\documments" />
       <recent name="F:\projets-2023\Annuaire_Bien-Etre\templates\categorie" />
       <recent name="F:\projets-2023\Annuaire_Bien-Etre\templates\inscription" />

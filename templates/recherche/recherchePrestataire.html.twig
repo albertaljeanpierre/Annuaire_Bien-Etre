@@ -1,14 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-                {{ response }}
+   <p> {{ response }}</p>
 
     {% if data is not null %}
-        <ul>
+        <div class="prestataire-group">
             {% for key, user in data %}
-                <li>{{ key }}: {{ user }}</li>
+                <div class="prestataire-description" id="prestataire-{{ key }}">
+                    <h3 class="prestataire-nom">{{ user.nom }}</h3>
+                    <p>Contact : {{ user.numTel }}</p>
+                    <div class="align-center">
+                        <a href="{{ path('app_home', { id: user.id }) }}"  class="btn-lien">Voir la fiche de ce prestataire</a>
+                    </div>
+                </div>
+
             {% endfor %}
-        </ul>
+        </div>
     {% endif %}
 {% endblock %}
 

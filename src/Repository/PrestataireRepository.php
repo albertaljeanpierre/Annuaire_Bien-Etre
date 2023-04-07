@@ -39,6 +39,37 @@ class PrestataireRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     *  Recherche tous les prestataires
+     * @return Prestataire[] Returns an array of Prestataire objects
+     */
+    public function findAllOrderByName(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.nom', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
+    /**
+     * Recherche des prestataires en fonction des critères de recherche du formulaire
+     * @return Prestataire[] Returns an array of Prestataire objects
+     */
+    public function findPrestataireMulti($nomPrestataire = null, $categorie = null): array
+    {
+        return $this->createQueryBuilder('p')
+
+            ->andWhere('p.nom = :nom')
+            ->andWhere('p.categorie = :categorie')
+            ->setParameter('nom', $nomPrestataire)
+            ->setParameter('categorie', $categorie)
+            ->orderBy('p.nom', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 //    /**
 //     * @return Prestataire[] Returns an array of Prestataire objects
 //     */

@@ -2,6 +2,8 @@
 
 namespace App\Controller\Recherche;
 
+use App\Entity\Prestataire;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +16,7 @@ class RechercheController extends AbstractController
      * @param Request $request la requête POST pour la recherche des prestataires
      * @return Response
      */
-    public function recherchePrestataire( Request $request): Response
+    public function recherchePrestataire( Request $request, EntityManagerInterface $entityManager): Response
     {
         // $request est transmis en paramètre de la fonction depuis base.html.twig qui récupère la requête de Request
         // Ce qui permet de récupérer les données de POST dans ce controller
@@ -35,10 +37,22 @@ class RechercheController extends AbstractController
 
             if (my_empty($request->request)) {
                 $response = "Recherche de tous les prestataires";
+                // recherche de tous les prestataires
+                $repo = $entityManager->getRepository(Prestataire::class);
+                $data = $repo->findAllOrderByName();
+
+
 
             } else {
-                $response = "Recherche selon les donnés fournie";
-                $data = $request->request;
+                // récupération des données du formulaire
+                $nomPrestataire = $request->request->get('prestataire');
+                $categorie = $request->request->get('categorie');
+                // envoie au repository
+                $response = "Recherche selon les données fournies";
+                $repo = $entityManager->getRepository(Prestataire::class);
+                $data = $repo->findPrestataireMulti($nomPrestataire, $categorie);
+
+                // $data = $request->request;
             }
             //dump($request->request);
         }
