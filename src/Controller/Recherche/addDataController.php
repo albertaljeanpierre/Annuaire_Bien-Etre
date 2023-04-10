@@ -40,9 +40,12 @@ class addDataController extends AbstractController
 
 
     #[Route('/admin/addLieu', name: 'app_add_lieu')]
-    public function addLieu()
+    public function addLieu() : Response
     {
-
+        $file = 'Region-Ville-CodePostal.json';
+        $data = file_get_contents($file);
+        $obj = json_decode($data);
+        dd($obj);
         return $this->render('recherche/addLieu.html.twig', [
 
         ]);
