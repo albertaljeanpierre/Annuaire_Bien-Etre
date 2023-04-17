@@ -3,7 +3,11 @@
 namespace App\Controller\Recherche;
 
 use App\Entity\Categorie;
+use App\Entity\Commune;
+use App\Entity\Province;
 use App\Repository\CategorieRepository;
+use App\Repository\CommuneRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,12 +44,26 @@ class addDataController extends AbstractController
 
 
     #[Route('/admin/addLieu', name: 'app_add_lieu')]
-    public function addLieu() : Response
+    public function addLieu(CommuneRepository $communeRepository, EntityManagerInterface $entityManager) : Response
     {
-        $file = 'Region-Ville-CodePostal.json';
-        $data = file_get_contents($file);
+        $file =  "http://" . $_SERVER['SERVER_NAME'] . '/data/Region-Ville-CodePostal.json';
+        $data = file_get_contents($file, FILE_USE_INCLUDE_PATH);
         $obj = json_decode($data);
-        dd($obj);
+        // dd($obj);
+        foreach ($obj as $item) {
+//            $ville =  $item->ville;
+//            $cp =  $item->codePostal;
+//            $province =  $item->region;
+            $commune = new Commune();
+            $province = new Province();
+            $province->setNom($item->region);
+            $commune->setNom($item->ville);
+            $commune->setProvince($province);
+            $commune->setCodePostal($item->codePostal);
+
+            $communeRepository->save($commune , true);
+        }
+
         return $this->render('recherche/addLieu.html.twig', [
 
         ]);
