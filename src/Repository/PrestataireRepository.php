@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Prestataire;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -51,7 +52,37 @@ class PrestataireRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+public function findPrestatairePagination(int $page, int $limit = 6 ) : array
+{
+    $limit = abs($limit); // Valeur absolue
+    $result = [];
+    $query = $this->getEntityManager()->createQueryBuilder()
+        ->select('p')
+        ->from('app\Entity\Prestataire', 'p')
+        ->orderBy('p.nom', 'ASC')
+        ->setMaxResults($limit)
+        ->setFirstResult(($page * $limit) - $limit);
+    // dd($query->getQuery()->getResult());
+    $paginator = new Paginator($query);
+    $data = $paginator->getQuery()->getResult();
 
+    // On vérifie si il y a des données
+    if (empty($data)) {
+        $result['data'] = null;
+        return  $result;
+    }
+    // on calcule le nombre de pages
+    $pages = ceil($paginator->count() / $limit);
+
+    // on remplit le tableau
+    $result['data'] = $data;
+    $result['pages'] = $pages;
+    $result['page'] = $page;
+    $result['limit'] = $limit;
+
+    return $result;
+
+}
 
     /**
      * Recherche des prestataires en fonction des critères de recherche du formulaire

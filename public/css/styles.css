@@ -19,7 +19,7 @@
 body {
     background-color: rgba(94, 190, 224, 0.5);
     padding: 15px;
-    font-family: 'DancingScript', sans-serif;
+    font-family: 'DancingScript', 'arial',  sans-serif;
     font-size: 2.2rem;
 }
 
@@ -164,6 +164,46 @@ section, main {
     padding: 0 30px;
     background-color: #F1F1F1;
 }
+
+/* Pagination */
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    gap: 10px;
+}
+.page-item {
+
+    border-radius: 4px;
+    flex-basis: 30px;
+    align-items: baseline;
+    text-align: center;
+}
+.page-item a {
+    text-decoration: none;
+    color: black;
+}
+.disabled a {
+    pointer-events: none;
+    cursor: not-allowed;
+
+}
+ a:disabled , .disabled a {
+    cursor: not-allowed;
+}
+.active {
+    background: var(--main-color);
+
+}
+.active a {
+    color: black;
+}
+.bigger {
+    font-size: 3.6rem;
+    font-weight: bold;
+}
+
 
 
 @media screen and (min-width: 360px) and (max-width: 850px) {

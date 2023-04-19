@@ -5,7 +5,7 @@
 
     {% if data is not null %}
         <div class="prestataire-group">
-            {% for key, user in data %}
+            {% for key, user in data.data %}
                 <div class="prestataire-description" id="prestataire-{{ key }}">
                     <h3 class="prestataire-nom">{{ user.nom }}</h3>
                     <p>Contact : {{ user.numTel }}</p>
@@ -16,6 +16,11 @@
 
             {% endfor %}
         </div>
+        {% set path = 'app_recherchePrestataire' %}
+        {% set pages =  data.pages %}
+
+        {% set currentPage = data.page  %}
+        {% include "_partials/_pagination.html.twig" %}
     {% endif %}
 {% endblock %}
 

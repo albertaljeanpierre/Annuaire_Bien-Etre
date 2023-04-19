@@ -20,11 +20,12 @@ class RechercheController extends AbstractController
     {
         // $request est transmis en paramètre de la fonction depuis base.html.twig qui récupère la requête de Request
         // Ce qui permet de récupérer les données de POST dans ce controller
+        $page = $request->query->getInt('page', 1);
 
 //        dump($request );
         $data = null;
         $response = "";
-        if ($request->request->count() > 0) { // Si il y a des données envoyées en POST
+        if ($request->request->count() > 0  || $request->get('page')) { // Si il y a des données envoyées en POST ou s'il y aun paramètre page dans l'URL
             function my_empty( $arr)
             {
                 foreach ($arr as $key => $value) {
@@ -39,7 +40,9 @@ class RechercheController extends AbstractController
                 $response = "Recherche de tous les prestataires";
                 // recherche de tous les prestataires
                 $repo = $entityManager->getRepository(Prestataire::class);
-                $data = $repo->findAllOrderByName();
+//                $data = $repo->findAllOrderByName();
+                // on vas chercher la liste des prestataires paginée
+                $data = $repo->findPrestatairePagination($page);
 
 
 
@@ -55,6 +58,7 @@ class RechercheController extends AbstractController
                 // $data = $request->request;
             }
             //dump($request->request);
+            // dd($data);
         }
         return $this->render('recherche/recherchePrestataire.html.twig', [
             'data' => $data,
