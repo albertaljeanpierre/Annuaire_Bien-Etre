@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Fiche descriptive d'un prestataire {% endblock %}
+
+{% block main %}
+
+
+
+    <h2 class="titre-general">Fiche descriptive d'un prestataire </h2>
+    {% if prestataire == null %}
+        <p>Aucune fiche pour ce prestataire</p>
+    {% else %}
+{#        <p><img src="" alt="Logo"></p>#}
+        <p> {{  prestataire.nom }} </p>
+        <p><a href="{{  prestataire.siteInternet }}" target="_blank">{{  prestataire.siteInternet }}</a> </p>
+        <p> {{  prestataire.numTel }} </p>
+        <p> {{  prestataire.numTVA }} </p>
+    {% endif %}
+{% endblock %}

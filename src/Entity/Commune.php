@@ -21,11 +21,11 @@ class Commune
     #[ORM\Column(length: 4)]
     private ?string $codePostal = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commune')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'commune', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false  )]
     private ?Province $province = null;
 
-    #[ORM\OneToMany(mappedBy: 'commune', targetEntity: User::class)]
+    #[ORM\OneToMany(mappedBy: 'commune', targetEntity: User::class , cascade: ['persist', 'remove'])]
     private Collection $users;
 
     public function __construct()
