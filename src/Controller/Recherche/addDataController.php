@@ -15,6 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class addDataController extends AbstractController
 {
 
+    /**
+     * Fonction qui a pour but de lire le tableau de donnée et de les pousser dans la base de donnée
+     * @param CategorieRepository $categorieRepository
+     * @return Response
+     */
     #[Route('/admin/addCategories', name: 'app_add_categories')]
     public function addCategories(CategorieRepository $categorieRepository): Response
     {
@@ -42,7 +47,12 @@ class addDataController extends AbstractController
         ]);
     }
 
-
+    /**
+     * Fonction qui à pour but de lire les données des communes, code postal et province pour les pousser dans la base de donnée
+     * @param CommuneRepository $communeRepository
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/admin/addLieu', name: 'app_add_lieu')]
     public function addLieu(CommuneRepository $communeRepository, EntityManagerInterface $entityManager) : Response
     {

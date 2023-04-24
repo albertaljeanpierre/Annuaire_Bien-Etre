@@ -35,5 +35,8 @@ Rendez vous à l'URL  http://localhost:8000/
 Pour populer la base avec les données de catégories des prestataires exécutez la route suivante :  
 http://localhost:8000/admin/addCategories
 
+Pour populer la base avec les données des communes, code postal et province exécuter la route suivante :
+http://localhost:8000/admin/addLieu 
+
 ## 🙇 Auteur
 #### Jean-Pierre ALBERTAL 
