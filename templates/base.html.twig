@@ -170,18 +170,21 @@
                         <div class="row">
                             <div class="four columns">
                                 <label for="commune">Par commune</label>
-                                <input class="u-full-width" type="text" name="commune" id="commune"
-                                       placeholder="Recherche par commune">
+{#                                <input class="u-full-width" type="text" name="commune" id="commune"#}
+{#                                       placeholder="Recherche par commune">#}
+                                {{ render(controller('App\\Controller\\Recherche\\LieuController::listeCommune')) }}
                             </div>
                             <div class="four columns">
                                 <label for="province">Par province</label>
-                                <input class="u-full-width" type="text" name="province" id="province"
-                                       placeholder="Recherche par province">
+{#                                <input class="u-full-width" type="text" name="province" id="province"#}
+{#                                       placeholder="Recherche par province">#}
+
+                                {{ render(controller('App\\Controller\\Recherche\\LieuController::listeProvince')) }}
                             </div>
                             <div class="four columns">
                                 <label class="u-full-width" for="cp">Par code postal</label>
-                                <input class="u-full-width" type="text" name="cp" id="cp"
-                                       placeholder="Recherche par code postal">
+{#                                <input class="u-full-width" type="text" name="cp" id="cp" placeholder="Recherche par code postal">#}
+                                {{ render(controller('App\\Controller\\Recherche\\LieuController::listeCodePostal')) }}
                             </div>
                         </div>
                         <div class="row">
@@ -202,8 +205,8 @@
                             </div>
                             <div class="four columns">
                                 <label for="prestataire">Par nom de prestataire</label>
-                                <input class="u-full-width" type="text" name="prestataire" id="prestataire"
-                                       placeholder="Recherche par nom">
+{#                                <input class="u-full-width" type="text" name="prestataire" id="prestataire"  placeholder="Recherche par nom">#}
+                                {{ render(controller('App\\Controller\\Recherche\\LieuController::listeNomPrestataire')) }}
                             </div>
                             <div class="four columns">
                                 <br>

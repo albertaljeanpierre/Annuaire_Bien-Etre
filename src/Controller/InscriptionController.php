@@ -45,7 +45,7 @@ class InscriptionController extends AbstractController
 
 
                 mail($to, $subject, $message, $headers);
-                $message = "Un mail vient d'être envoyer à l'adresse $to, veuillez cliquer sur le lien qui s'y trouve pour confirmer votre inscription.";
+                $message = "Un mail vient d'être envoyé à l'adresse $to, veuillez cliquer sur le lien qui s'y trouve pour confirmer votre inscription.";
 
             } else {
                 $erreur = "Veuillez introduire une adresse mail valide!";

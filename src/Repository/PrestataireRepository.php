@@ -93,9 +93,9 @@ public function findPrestatairePagination(int $page, int $limit = 6 ) : array
         return $this->createQueryBuilder('p')
 
             ->andWhere('p.nom = :nom')
-            ->andWhere('p.categorie = :categorie')
+            //->andWhere('p.categorie = :categorie')
             ->setParameter('nom', $nomPrestataire)
-            ->setParameter('categorie', $categorie)
+            //->setParameter('categorie', $categorie)
             ->orderBy('p.nom', 'ASC')
             ->getQuery()
             ->getResult()

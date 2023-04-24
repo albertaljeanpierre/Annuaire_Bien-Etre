@@ -38,6 +38,21 @@ class ProvinceRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    /**
+     * @return Province[] Returns an array of Province objects
+     */
+    public function findByNomUnique(): array
+    {
+        return $this->createQueryBuilder('p')
+             ->select('p.nom')
+            ->groupBy('p.nom')
+            ->orderBy('p.nom', 'ASC')
+
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 
 //    /**
 //     * @return Province[] Returns an array of Province objects

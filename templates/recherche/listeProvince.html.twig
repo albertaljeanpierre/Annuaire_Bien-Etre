@@ -1,0 +1,9 @@
+{# {% extends 'base.html.twig' %} #}
+
+<select name="province" id="province" class="u-full-width">
+    <option value="" disabled selected>- Sélectionner une province -</option>
+    {% for province in listeProvince %}
+        <option value="{{ province.nom }}">{{ province.nom }}</option>
+    {% endfor %}
+</select>
+

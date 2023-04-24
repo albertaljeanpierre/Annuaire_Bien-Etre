@@ -1,0 +1,11 @@
+{#{% extends 'base.html.twig' %}#}
+
+<input list="listeCodePostal" id="cp" name="cp" class="u-full-width" placeholder="Recherche par code postal">
+
+<datalist id="listeCodePostal">
+    {% for cp in listeCodePostal %}
+    <option value="{{ cp.codePostal }}" data-id="{{ cp.id }}"> {{ cp.codePostal }}
+        {% endfor %}
+
+</datalist>
+

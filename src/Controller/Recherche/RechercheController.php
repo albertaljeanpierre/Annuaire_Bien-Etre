@@ -49,12 +49,13 @@ class RechercheController extends AbstractController
             } else {
                 // récupération des données du formulaire
                 $nomPrestataire = $request->request->get('prestataire');
-                $categorie = $request->request->get('categorie');
+                // $categorie = $request->request->get('categorie');
                 // envoie au repository
                 $response = "Recherche selon les données fournies";
                 $repo = $entityManager->getRepository(Prestataire::class);
-                $data = $repo->findPrestataireMulti($nomPrestataire, $categorie);
-
+                $data['data'] = $repo->findPrestataireMulti($nomPrestataire, );
+                $data['pages'] = 1;
+                $data['page'] = 1;
                 // $data = $request->request;
             }
             //dump($request->request);

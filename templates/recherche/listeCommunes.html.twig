@@ -1,0 +1,11 @@
+{#{% extends 'base.html.twig' %}#}
+
+
+<input list="listeCommune" id="commune" name="commune" class="u-full-width" placeholder="Recherche par commune">
+
+<datalist id="listeCommune">
+    {% for commune in listeCommunes %}
+    <option  id="{{ commune.codePostal }}" value="{{ commune.nom }}"> {{ commune.nom }} - {{ commune.codePostal }}
+    {% endfor %}
+
+</datalist>
