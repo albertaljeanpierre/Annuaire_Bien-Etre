@@ -234,34 +234,11 @@
             <main class="main nine columns">
                 {% block main %}
                     <section class="row">
-                        <p>La société « Bien-Être » est une association dont le principal objectif est de promouvoir des
-                            services dans le domaine du bien-être.
-                            Elle agit en qualité d'intermédiaire entre les prestataires de services et les
-                            internautes.</p>
-                        <p class="align-center"><span class="contrast">Inscrivez-vous, c’est gratuit</span></p>
-                        <p>Dans ce site vous pourrez :</p>
+
+{#                        Présentation du site #}
+                        {% include '_partials/_presentation.html.twig' %}
                     </section>
-                    <div class="row">
-                        <section class="six columns presentation">
-                            <h2>En tant que visiteur : </h2>
-                            <ul class="listePresentation">
-                                <li>Trouver un service pour votre bien être</li>
-                                <li>Connaitre les stages et promotions d’un prestataire</li>
-                                <li>Mettre en favoris un prestataire</li>
-                                <li>Recommander un prestataire à un ami</li>
-                                <li>Poster des commentaires</li>
-                                <li>Attribuer une cote à un prestataire</li>
-                            </ul>
-                        </section>
-                        <section class="six columns presentation">
-                            <h2>En tant que prestataire : </h2>
-                            <ul class="listePresentation">
-                                <li>Proposer vos services</li>
-                                <li>Fidéliser via des promotions régulières</li>
-                                <li>Annoncer les stages que vous organisez</li>
-                            </ul>
-                        </section>
-                    </div>
+
                     {#  Ce controleur est appeller en GET !!! Il est nécessaire de lui passer un paramêtre à l'url qui est la Request #}
                     {#                    {{ render(controller('App\\Controller\\Recherche\\RechercheController::recherchePrestataire' , {request:   requete   })) }} #}
 

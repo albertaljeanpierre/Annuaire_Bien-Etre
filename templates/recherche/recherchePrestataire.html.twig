@@ -1,26 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-   <p> {{ response }}</p>
 
-    {% if data is not null %}
-        <div class="prestataire-group">
-            {% for key, user in data.data %}
-                <div class="prestataire-description" id="prestataire-{{ key }}">
-                    <h3 class="prestataire-nom">{{ user.nom }}</h3>
-                    <p>Contact : {{ user.numTel }}</p>
-                    <div class="align-center">
-                        <a href="{{ path('app_description_prestataire', { id: user.id }) }}"  class="btn-lien">Voir la fiche de ce prestataire</a>
+
+    {% if data.data is not null %}
+        <p> {{ response }}:</p>
+
+        {% if data.data is empty %}
+            <p>Votre recherche ne retourne aucun résultat. </p>
+        {% else %}
+            <div class="prestataire-group">
+                {% for key, user in data.data %}
+                    <div class="prestataire-description" id="prestataire-{{ key }}">
+                        <h3 class="prestataire-nom">{{ user.nom }}</h3>
+                        <p>Contact : {{ user.numTel }}</p>
+                        <div class="align-center">
+                            <a href="{{ path('app_description_prestataire', { id: user.id }) }}" class="btn-lien">Voir
+                                la
+                                fiche de ce prestataire</a>
+                        </div>
                     </div>
-                </div>
 
-            {% endfor %}
-        </div>
-        {% set path = 'app_recherchePrestataire' %}
-        {% set pages =  data.pages %}
+                {% endfor %}
+            </div>
+            {% set path = 'app_recherchePrestataire' %}
+            {% set pages =  data.pages %}
 
-        {% set currentPage = data.page  %}
-        {% include "_partials/_pagination.html.twig" %}
+            {% set currentPage = data.page %}
+            {% include "_partials/_pagination.html.twig" %}
+        {% endif %}
+
+    {% else %}
+        <p>Il n'y a pas encore de prestataire dans notre base de donnée... </p>
+        <p>Vous pouvez <a href="{{ path('app_inscription') }}"> vous inscrire</a> pour proposer vos services. </p>
     {% endif %}
 {% endblock %}
 

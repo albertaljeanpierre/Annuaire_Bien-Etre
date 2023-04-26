@@ -25,7 +25,7 @@ class RechercheController extends AbstractController
 //        dump($request );
         $data = null;
         $response = "";
-        if ($request->request->count() > 0  || $request->get('page')) { // Si il y a des données envoyées en POST ou s'il y aun paramètre page dans l'URL
+        if ($request->request->count() > 0  || $request->get('page')) { // Si il y a des données envoyées en POST ou s'il y a un paramètre page dans l'URL
             function my_empty( $arr)
             {
                 foreach ($arr as $key => $value) {
@@ -44,7 +44,7 @@ class RechercheController extends AbstractController
                 // on vas chercher la liste des prestataires paginée
                 $data = $repo->findPrestatairePagination($page);
 
-
+                // dd($data);
 
             } else {
                 // récupération des données du formulaire
@@ -59,7 +59,7 @@ class RechercheController extends AbstractController
                 // $data = $request->request;
             }
             //dump($request->request);
-            // dd($data);
+             //dd($data);
         }
         return $this->render('recherche/recherchePrestataire.html.twig', [
             'data' => $data,

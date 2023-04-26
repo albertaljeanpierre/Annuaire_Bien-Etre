@@ -31,6 +31,23 @@ class Categorie
     #[ORM\ManyToMany(targetEntity: Prestataire::class, mappedBy: 'categorie')]
     private Collection $prestataires;
 
+    #[ORM\OneToOne(inversedBy: 'categorie', cascade: ['persist', 'remove'])]
+    private  ?Image $photo = null ;
+
+    private int $imageID;
+    /**
+     * @return int
+     */
+public function getImageID(): int
+{
+    return $this->imageID;
+}/**
+ * @param int $imageID
+ */
+public function setImageID(int $imageID): void
+{
+    $this->imageID = $imageID;
+}
     public function __construct()
     {
         $this->prestataires = new ArrayCollection();
@@ -112,6 +129,18 @@ class Categorie
         if ($this->prestataires->removeElement($prestataire)) {
             $prestataire->removeCategorie($this);
         }
+
+        return $this;
+    }
+
+    public function getPhoto(): ?Image
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?Image $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }

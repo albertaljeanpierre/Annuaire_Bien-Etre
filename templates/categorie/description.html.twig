@@ -4,6 +4,7 @@
 
  {% block main %}
 
-     <h2 class="titre-general">Description de {{ categorie.nom }} </h2>
-     <p> {{  categorie.description  }}</p>
+     <h2 class="titre-general">Catégorie {{ categorie.nom }} </h2>
+     <p> <img src="{{ categorie.photo.path }}" alt="" width="400" style="float: left; margin-right: 20px;"> {{  categorie.description  }}</p>
+
 {% endblock %}

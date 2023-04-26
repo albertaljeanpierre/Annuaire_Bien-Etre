@@ -33,9 +33,13 @@ class Prestataire
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'prestataires')]
     private Collection $categorie;
 
+    #[ORM\OneToMany(mappedBy: 'prestataire', targetEntity: Image::class)]
+    private Collection $logo;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
+        $this->logo = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -136,5 +140,35 @@ class Prestataire
     public function __toString(): string
     {
          return $this->getNom();
+    }
+
+    /**
+     * @return Collection<int, Image>
+     */
+    public function getLogo(): Collection
+    {
+        return $this->logo;
+    }
+
+    public function addLogo(Image $logo): self
+    {
+        if (!$this->logo->contains($logo)) {
+            $this->logo->add($logo);
+            $logo->setPrestataire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLogo(Image $logo): self
+    {
+        if ($this->logo->removeElement($logo)) {
+            // set the owning side to null (unless already changed)
+            if ($logo->getPrestataire() === $this) {
+                $logo->setPrestataire(null);
+            }
+        }
+
+        return $this;
     }
 }

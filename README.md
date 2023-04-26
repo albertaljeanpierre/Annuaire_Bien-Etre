@@ -32,6 +32,11 @@ Rendez vous à l'URL  http://localhost:8000/
 
 
 ## 🛠️ Installation des données dans la base de données
+**Note importante :** Vous devez avoir des données dans la table images pour insérer des données dans la table catégorie.
+
+Pour populer la base avec les images fournie dans le répertoire images/categorie exécutez la route suivante :
+http://localhost:8000/admin/addImages 
+
 Pour populer la base avec les données de catégories des prestataires exécutez la route suivante :  
 http://localhost:8000/admin/addCategories
 
