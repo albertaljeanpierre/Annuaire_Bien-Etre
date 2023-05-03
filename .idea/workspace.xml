@@ -4,30 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2e52c0f-5d96-4f17-b01a-b1fdca3a7550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20230426134058.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/categories/Coiffeur.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/categories/Estheticien.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/categories/Manucure.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/categories/Massage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/categories/Pedicure.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/categories/Tatoueur.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/categories/Therme.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ImageRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/_partials/_presentation.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/images/addImage.html.twig" afterDir="false" />
+    <list default="true" id="6011055e-761b-4030-8bd3-3e240cbe43b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Recherche/RechercheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Recherche/RechercheController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Recherche/addDataController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Recherche/addDataController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Prestataire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Prestataire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/apropos/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/apropos/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/categorie/description.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/categorie/description.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recherche/addLieu.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recherche/addLieu.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/recherche/recherchePrestataire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recherche/recherchePrestataire.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PrestataireType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PrestataireType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,19 +182,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/projets-2023/Annuaire_Bien-Etre/templates/_partials",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/projets-2023/Annuaire_Bien-Etre/templates/_partials&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\projets-2023\Annuaire_Bien-Etre\templates\_partials" />

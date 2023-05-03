@@ -2,8 +2,12 @@
 
 namespace App\Form;
 
+use App\Entity\Categorie;
 use App\Entity\Prestataire;
+use App\Repository\CategorieRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -22,7 +26,14 @@ class PrestataireType extends AbstractType
             ->add('numTel' , TelType::class, ['label' => 'Votre numéro de téléphone :'])
             ->add('numTVA' , TextType::class, ['label' => 'Votre numéro de TVA Belge :', 'attr' => ['placeholder' => 'BE 0 123 456 789']])
 //            ->add('user')
-            ->add('Valider' , SubmitType::class)
+            ->add('categorie', EntityType::class, ['class' =>  Categorie::class ,
+
+//                'query_builder' => function (CategorieRepository $categorieRepository) {
+//                    return  $categorieRepository->createQueryBuilder('c')
+//                        ->orderBy('c.nom', 'ASC');
+//                },
+                'choice_label' => 'nom']  )
+            ->add('Valider' , SubmitType::class,  ['attr' => ['class' => 'button-primary']])
         ;
     }
 

@@ -15,6 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class InscriptionController extends AbstractController
 {
+    /**
+     * Méthode qui propose d'entrer une adresse mail pour l'inscription et qui envoie un mail à cette adresse pour confirmation
+     * @param Request $request Contient les données soumises dans le formulaire, c'est-à-dire l'adresse mail du futur inscrit
+     * @return Response
+     */
     #[Route('/inscription', name: 'app_inscription')]
     public function index(Request $request): Response
     {
@@ -59,7 +64,13 @@ class InscriptionController extends AbstractController
         ]);
     }
 
-
+    /**
+     *  Méthode qui réceptionne la confirmation de l'adresse mail valide de la personne inscrite et
+     *  insert ce mail en base puis affiche un message de confirmation ou d'erreur
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/inscription/confirmation', name: 'app_inscription_confirmation')]
     public function confirmationInscription(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -114,6 +125,13 @@ class InscriptionController extends AbstractController
         }
     }
 
+    /**
+     *  Étape 2 de l'inscription, recueille des données concernant la table utilisateur
+     * @param Request $request
+     * @param User $user Un utilisateur aillant confirmé son mail
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/inscription/etappe-2/{id}', name: 'app_inscription_etape_2')]
     public function inscriptionEtape2(Request $request, User $user, EntityManagerInterface $entityManager): Response
     {
@@ -145,7 +163,13 @@ class InscriptionController extends AbstractController
         ]);
     }
 
-
+    /**
+     * Étape 3 de l'inscription, recueille des données concernant la table prestataire
+     * @param Request $request
+     * @param Prestataire $prestataire
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/inscription/etappe-3/{id}', name: 'app_inscription_etape_3')]
     public function inscriptionEtape3(Request $request, Prestataire $prestataire, EntityManagerInterface $entityManager): Response
     {
@@ -157,10 +181,13 @@ class InscriptionController extends AbstractController
         // $formPrestataire = $this->createForm(PrestataireType::class, $prestataire);
         $formPrestataire->handleRequest($request);
         if ($formPrestataire->isSubmitted() && $formPrestataire->isValid()) {
-            $prestataire = $formPrestataire->getData();
-            // dd($prestataire);
+           //  $prestataireData = $formPrestataire->get('categorie');
 
-            $entityManager->persist($prestataire);
+            $prestataireData = $formPrestataire->getData();
+//            dd($prestataire);
+            $categories = $prestataire->getCategorie();
+            $entityManager->persist($categories);
+            $entityManager->persist($prestataireData);
             $entityManager->flush();
             return $this->redirectToRoute('inscription_success');
         }
@@ -170,6 +197,10 @@ class InscriptionController extends AbstractController
         ]);
     }
 
+    /**
+     * Méthode qui finalise l'inscription grâce à un message de success
+     * @return Response
+     */
     #[Route('/inscription/valide/', name: 'inscription_success')]
     public function inscription_success() : Response {
 

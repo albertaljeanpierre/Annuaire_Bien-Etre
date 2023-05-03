@@ -30,7 +30,7 @@ class Prestataire
     #[ORM\OneToOne(mappedBy: 'prestataire', cascade: ['persist', 'remove'])]
     private ?User $user = null;
 
-    #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'prestataires')]
+    #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'prestataires', )]
     private Collection $categorie;
 
     #[ORM\OneToMany(mappedBy: 'prestataire', targetEntity: Image::class)]
@@ -139,7 +139,7 @@ class Prestataire
 
     public function __toString(): string
     {
-         return $this->getNom();
+         return $this->getCategorie();
     }
 
     /**
