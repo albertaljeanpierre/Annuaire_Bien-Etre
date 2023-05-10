@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DescriptionPrestataireController extends AbstractController
 {
-    #[Route('/fiche-prestataire/{id}', name: 'app_description_prestataire')]
+    #[Route('/fiche-prestataire/{id}', name: 'app_description_prestataire',  defaults: ['id' => 1 ])]
     public function index($id, EntityManagerInterface $entityManager ): Response
     {
         $repo = $entityManager->getRepository(Prestataire::class);

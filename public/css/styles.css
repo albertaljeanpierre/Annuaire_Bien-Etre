@@ -133,6 +133,10 @@ a:hover {
     background: #bbbbbb;
     box-shadow: none;
 }
+#prestataire_categorie { /* Choix des catégorie lors de l'inscription prestataire */
+    height: auto;
+}
+
 
 section, main {
     min-height: 100px;

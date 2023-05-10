@@ -11,6 +11,7 @@
         <p>Aucune fiche pour ce prestataire</p>
     {% else %}
 {#        <p><img src="" alt="Logo"></p>#}
+        <p>Catégorie(s) : {{ prestataire.categorie |join(', ') }}</p>
         <p> {{  prestataire.nom }} </p>
         <p><a href="{{  prestataire.siteInternet }}" target="_blank">{{  prestataire.siteInternet }}</a> </p>
         <p> {{  prestataire.numTel }} </p>

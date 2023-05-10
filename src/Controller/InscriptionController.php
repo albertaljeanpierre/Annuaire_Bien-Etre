@@ -184,9 +184,9 @@ class InscriptionController extends AbstractController
            //  $prestataireData = $formPrestataire->get('categorie');
 
             $prestataireData = $formPrestataire->getData();
-//            dd($prestataire);
+            //dd($prestataire);
             $categories = $prestataire->getCategorie();
-            $entityManager->persist($categories);
+            //$entityManager->persist($categories);
             $entityManager->persist($prestataireData);
             $entityManager->flush();
             return $this->redirectToRoute('inscription_success');
