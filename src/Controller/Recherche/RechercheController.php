@@ -53,7 +53,7 @@ class RechercheController extends AbstractController
                 // envoie au repository
                 $response = "Recherche selon les données fournies";
                 $repo = $entityManager->getRepository(Prestataire::class);
-                $data['data'] = $repo->findPrestataireMulti($nomPrestataire, );
+                $data['data'] = $repo->findPrestataireMulti($nomPrestataire );
                 $data['pages'] = 1;
                 $data['page'] = 1;
                 // $data = $request->request;
