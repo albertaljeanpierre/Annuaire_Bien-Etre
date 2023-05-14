@@ -43,5 +43,11 @@ http://localhost:8000/admin/addCategories
 Pour populer la base avec les données des communes, code postal et province exécuter la route suivante :
 http://localhost:8000/admin/addLieu 
 
+## ➤ Documentation
+Vous trouverez dans le répertoire documments/ deux fichiers de documentation.
+- Documentation-utilisateur.docx reprenant la documentation utilisateur.
+- Documentation-technique.docx reprenant la documentation technique de l’application.
+
+
 ## 🙇 Auteur
 #### Jean-Pierre ALBERTAL 
