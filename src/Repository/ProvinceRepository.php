@@ -39,6 +39,7 @@ class ProvinceRepository extends ServiceEntityRepository
         }
     }
     /**
+     * Méthode qui recherche les provinces en suppriment les doublons
      * @return Province[] Returns an array of Province objects
      */
     public function findByNomUnique(): array

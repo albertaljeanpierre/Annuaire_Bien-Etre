@@ -12,8 +12,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class RechercheController extends AbstractController
 {
     /**
+     * Méthode qui recherche les prestataires selon le cas ou le nom du prestataire est entré dans le formulaire de recherche ou
+     *  que le formulaire est vide, dans ce cas tous les prestataires seront afficher
      * @Route("/recherchePrestataire", name="app_recherchePrestataire")
      * @param Request $request la requête POST pour la recherche des prestataires
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
     public function recherchePrestataire( Request $request, EntityManagerInterface $entityManager): Response

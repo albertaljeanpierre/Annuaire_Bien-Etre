@@ -10,15 +10,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
+     * Méthode qui affiche la page d'accueil du site
      * @Route("/", name="app_home")
-     * @param Request $request la requête POST pour la recherche des prestataires
+     *
      * @return Response
      */
-    public function index(Request $request): Response
+    public function index(): Response
     {
        // dump($request);
         return $this->render('home/index.html.twig', [
-            'requete' => $request
+
         ]);
     }
 

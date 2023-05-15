@@ -53,7 +53,14 @@ class PrestataireRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-public function findPrestatairePagination(int $page, int $limit = 6 ) : array
+
+    /**
+     * Méthode qui recherche tous les prestataires et qui les retourne avec un système de pagination
+     * @param int $page La page en cours
+     * @param int $limit Le nombre limite de prestataires à afficher par page
+     * @return array
+     */
+    public function findPrestatairePagination(int $page, int $limit = 6 ) : array
 {
     $limit = abs($limit); // Valeur absolue
     $result = [];

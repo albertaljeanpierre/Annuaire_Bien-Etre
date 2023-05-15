@@ -10,6 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DescriptionPrestataireController extends AbstractController
 {
+    /**
+     *  Methode qui recherche un prestataire en fonction de son identifiant passer en paramètre dans l'URL
+     * @param $id // identifiant d'un prestataire passer dans l'URL
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
     #[Route('/fiche-prestataire/{id}', name: 'app_description_prestataire',  defaults: ['id' => 1 ])]
     public function index($id, EntityManagerInterface $entityManager ): Response
     {

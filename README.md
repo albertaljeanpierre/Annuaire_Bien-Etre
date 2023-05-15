@@ -8,6 +8,10 @@ Ce projet est un exercice pratique d’une application Symfony. Vous trouverez d
 - CU24 Consulter les catégories de services d'un prestataire
 - CU02 S'inscrire
 - CU03 Confirmer l'inscription
+
+## 🛠️ Exigence minimal 
+- PHP 8+ 
+
 ## 🛠️ Installation des dépendances
 Dans le répertoire contenant vos projets :
 ```bash
@@ -27,14 +31,14 @@ Exécuter les migrations :
 ```bash
 php bin/console doctrine:migrations:migrate
 ```
-## Visualisation dans le navigateur
+## 🧑🏻‍💻 Visualisation dans le navigateur
 Rendez vous à l'URL  http://localhost:8000/ 
 
 
 ## 🛠️ Installation des données dans la base de données
 **Note importante :** Vous devez avoir des données dans la table images pour insérer des données dans la table catégorie.
 
-Pour populer la base avec les images fournie dans le répertoire images/categorie exécutez la route suivante :
+Pour populer la base avec les images fournies dans le répertoire images/categorie exécutez la route suivante :
 http://localhost:8000/admin/addImages 
 
 Pour populer la base avec les données de catégories des prestataires exécutez la route suivante :  
