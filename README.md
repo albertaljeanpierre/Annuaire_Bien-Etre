@@ -9,9 +9,9 @@ Ce projet est un exercice pratique d’une application Symfony. Vous trouverez d
 - CU02 S'inscrire
 - CU03 Confirmer l'inscription
 
-## 🛠️ Exigence minimal 
+## 🛠️ Exigences minimales 
 - PHP 8+  (et symfony CLI si vous souhaitez utiliser les commandes symfony)
-- un serveur de base de donnée
+- un serveur de base de données
 - un serveur de mail (pour l'utilisation de la fonction de php mail())
 
 ## 🛠️ Installation des dépendances
@@ -35,7 +35,7 @@ DATABASE_URL="mysql://<dbuser>:<pass>@<host>:<port>/<dbname>?serverVersion=8&cha
 php bin/console doctrine:database:create
 ```
 
-## Création des tables selon les migration
+## Création des tables selon les migrations
 Exécuter les migrations :
 ```bash
 php bin/console doctrine:migrations:migrate
