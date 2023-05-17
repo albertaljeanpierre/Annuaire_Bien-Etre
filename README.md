@@ -10,30 +10,49 @@ Ce projet est un exercice pratique d’une application Symfony. Vous trouverez d
 - CU03 Confirmer l'inscription
 
 ## 🛠️ Exigence minimal 
-- PHP 8+ 
+- PHP 8+  (et symfony CLI si vous souhaitez utiliser les commandes symfony)
+- un serveur de base de donnée
+- un serveur de mail (pour l'utilisation de la fonction de php mail())
 
 ## 🛠️ Installation des dépendances
 Dans le répertoire contenant vos projets :
 ```bash
-git clone https://github.com/albertaljeanpierre/Annuaire_Bien-Etre.git
+git clone https://github.com/albertaljeanpierre/Annuaire_Bien-Etre.git annuaire
 ```
 Ensuite déplacer vous dans ce répertoire pour installer les dépendances : 
 ```bash
-cd Annuaire_Bien-Etre
+cd annuaire
 composer install
 ```
-## Démarrer le serveur symfony
+## Configuration de la base de donnée
+Dans le fichier .env, à la racine, modifier la ligne suivante en fonction de votre configuration serveur.
 ```bash
-symfony server:start
+DATABASE_URL="mysql://<dbuser>:<pass>@<host>:<port>/<dbname>?serverVersion=8&charset=utf8mb4"
 ```
-## 🛠️ Migration
-Exécuter les migrations : 
+
+## Création de la base de donnée
+```bash
+php bin/console doctrine:database:create
+```
+
+## Création des tables selon les migration
+Exécuter les migrations :
 ```bash
 php bin/console doctrine:migrations:migrate
 ```
+
+## Démarrer le serveur local
+### En utilisant symfony CLI
+```bash
+symfony server:start
+```
+### En utilisant le serveur de développement de PHP
+```bash
+php -S localhost:8000 -t public
+```
+
 ## 🧑🏻‍💻 Visualisation dans le navigateur
 Rendez vous à l'URL  http://localhost:8000/ 
-
 
 ## 🛠️ Installation des données dans la base de données
 **Note importante :** Vous devez avoir des données dans la table images pour insérer des données dans la table catégorie.
